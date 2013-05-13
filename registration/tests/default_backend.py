@@ -1,7 +1,12 @@
 import datetime
 
 from django.conf import settings
-from django.contrib.auth.models import User
+try:
+    from django.contrib.auth import get_user_model
+except ImportError:
+    from django.contrib.auth.models import User
+else:
+    User = get_user_model()
 from django.contrib.sites.models import Site
 from django.core import mail
 from django.core.urlresolvers import reverse
