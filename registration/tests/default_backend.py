@@ -200,5 +200,4 @@ class DefaultBackendViewTests(TestCase):
 
         self.assertEqual(200, resp.status_code)
         self.assertTemplateUsed(resp, 'registration/activate.html')
-        self.assertEqual(profile.activation_key,
-                         resp.context['activation_key'])
+        self.failIf('activation_key' in resp.context)
