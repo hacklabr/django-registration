@@ -18,5 +18,4 @@ def get_version():
     if VERSION[3] != 'final':
         mapping = {'alpha': 'a', 'beta': 'b', 'rc': 'c'}
         sub = mapping[VERSION[3]] + str(VERSION[4])
-    from django import get_version as django_get_version
-    return django_get_version(VERSION) # pragma: no cover
+    return str(main + sub)
